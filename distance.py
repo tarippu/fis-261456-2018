@@ -1,42 +1,34 @@
 import matplotlib.pyplot as plt
 
 # brightness unit in cm
-def very_far(distance, alpha):
+def very_far(distance):
     membership_value = 0
     if(400 <= distance <= 700):
         membership_value = 1 - abs((distance - 550) / 150)
-        if(membership_value > alpha):
-            membership_value = alpha
     else:
         membership_value = 0
     return membership_value
 
-def far(distance, alpha):
+def far(distance):
     membership_value = 0
     if(180 <= distance <= 420):
         membership_value = 1 - abs((distance - 300) / 120)
-        if(membership_value > alpha):
-            membership_value = alpha
     else:
         membership_value = 0
     return membership_value
 
-def not_far(distance, alpha):
+def not_far(distance):
     membership_value = 0
     if(80 <= distance <= 200):
         membership_value = 1 - abs((distance - 140) / 60)#
-        if(membership_value > alpha):
-            membership_value = alpha
     else:
         membership_value = 0
     return membership_value
 
-def close(distance, alpha):
+def close(distance):
     membership_value = 0
     if(0 <= distance <= 100):
         membership_value = ((-1/100) * distance) + 1
-        if(membership_value > alpha):
-            membership_value = alpha
     else:
         membership_value = 0
     return membership_value

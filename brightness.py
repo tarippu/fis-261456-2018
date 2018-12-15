@@ -1,42 +1,34 @@
 import matplotlib.pyplot as plt
 
 # brightness unit in lux
-def dark(brightness, alpha):
+def dark(brightness):
     membership_value = 0
     if(0 <= brightness <= 20):
         membership_value = ((-1/20) * brightness) + 1
-        if(membership_value > alpha):
-            membership_value = alpha
     else:
         membership_value = 0
     return membership_value
 
-def low_brightness(brightness, alpha):
+def low_brightness(brightness):
     membership_value = 0
     if(18 <= brightness <= 400):
         membership_value = 1 - abs((brightness - 209) / 191)
-        if(membership_value > alpha):
-            membership_value = alpha
     else:
         membership_value = 0
     return membership_value
 
-def medium_brightness(brightness, alpha):
+def medium_brightness(brightness):
     membership_value = 0
     if(375 <= brightness <= 900):
         membership_value = 1 - abs((brightness - 637.5) / 262.5)
-        if(membership_value > alpha):
-            membership_value = alpha
     else:
         membership_value = 0
     return membership_value
 
-def high_brightness(brightness, alpha):
+def high_brightness(brightness):
     membership_value = 0
     if(800 <= brightness <= 5000):
         membership_value = 1 - abs((brightness - 2900) / 2100)
-        if(membership_value > alpha):
-            membership_value = alpha
     else:
         membership_value = 0
     return membership_value
