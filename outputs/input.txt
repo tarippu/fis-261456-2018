@@ -1,2 +1,2 @@
-Distance: 400
-Brightness: 320
+Distance: 50, 160, 380, 600
+Brightness: 10, 500, 15, 320
