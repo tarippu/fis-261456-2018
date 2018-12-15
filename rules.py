@@ -2,23 +2,58 @@ import numpy as np
 
 import distance as dist
 import brightness as br
+import power
 
 from graph import draw_graph
 
 class Rule(object):
     def __init__(self, distance, brightness):
         self.distance_membership = distance
+        self.ranges = np.arange(0, 14, 1)
         self.brightness_membership = brightness
 
-rule1 = Rule(dist.very_far(), br.dark())
-rule2 = Rule(dist.very_far(), br.low_brightness())
-rule3 = Rule(dist.very_far(), br.medium_brightness)
-rule4 = Rule(dist.far(), br.dark())
-rule5 = Rule(dist.far(), br.low_brightness)
-rule6 = Rule(dist.far(), br.medium_brightness())
-rule7 = Rule(dist.not_far(), br.medium_brightness())
-rule8 = Rule(dist.not_far(), br.medium_brightness())
-rule9 = Rule(dist.not_far(), br.medium_brightness())
-rule10 = Rule(dist.close(), br.dark())
-rule11 = Rule(dist.close(), br.low_brightness())
-rule12 = Rule(dist.close(), br.medium_brightness())
+    def fuzzificate(self, rule_no):
+        alpha_cut = min(self.distance_membership, self.brightness_membership)
+
+        ranges = self.ranges
+        y = []
+
+        if(rule_no == 1):
+            for i in range(len(ranges)):
+                y.append(round(power.very_high(ranges[i], alpha_cut), 2))
+        elif(rule_no == 2):
+            for i in range(len(ranges)):
+                y.append(round(power.very_high(ranges[i], alpha_cut), 2))
+        elif(rule_no == 3):
+            for i in range(len(ranges)):
+                y.append(round(power.high(ranges[i], alpha_cut), 2))
+        elif(rule_no == 4):
+            for i in range(len(ranges)):
+                y.append(round(power.high(ranges[i], alpha_cut), 2))
+        elif(rule_no == 5):
+            for i in range(len(ranges)):
+                y.append(round(power.low(ranges[i], alpha_cut), 2))
+        elif(rule_no == 6):
+            for i in range(len(ranges)):
+                y.append(round(power.low(ranges[i], alpha_cut), 2))
+        elif(rule_no == 7):
+            for i in range(len(ranges)):
+                y.append(round(power.low(ranges[i], alpha_cut), 2))
+        elif(rule_no == 8):
+            for i in range(len(ranges)):
+                y.append(round(power.low(ranges[i], alpha_cut), 2))
+        elif(rule_no == 9):
+            for i in range(len(ranges)):
+                y.append(round(power.very_low(ranges[i], alpha_cut), 2))
+        elif(rule_no == 10):
+            for i in range(len(ranges)):
+                y.append(round(power.low(ranges[i], alpha_cut), 2))
+        elif(rule_no == 11):
+            for i in range(len(ranges)):
+                y.append(round(power.very_low(ranges[i], alpha_cut), 2))
+        elif(rule_no == 12):
+            for i in range(len(ranges)):
+                y.append(round(power.very_low(ranges[i], alpha_cut), 2))
+
+        draw_graph(ranges, y, 'rule' + str(rule_no), rule_no)
+        return y
