@@ -12,6 +12,6 @@ Pada sistem ini proses fuzzy meliputi pengambilan nilai input sesuai dengan dist
 
 Output pada sistem ini berupa centroid yang sesuai dengan yang diinputkan. Kelebihan pada Metode Fuzzy Logic Mamdani adalah lebih spesifik, artinya dalam prosesnya lebih memperhatikan kondisi yang akan terjadi untuk setiap daerah fuzzynya, sehingga menghasilkan hasil keputusan yang lebih akurat.
 
-![](https://output/output.png)
+![Alt text](/../output/path/to/output.png)
 
 
